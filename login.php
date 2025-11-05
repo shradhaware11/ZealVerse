@@ -185,7 +185,7 @@
       <h2>Student Login</h2>
       <p>Enter your credentials to access your account</p>
 
-      <form id="loginForm" action="index.php" method="post" onsubmit="return redirectHome()">
+      <form id="loginForm" action="Studentdashboard.php" method="post" onsubmit="return redirectHome()">
         <input type="email" id="email" name="email" placeholder="john@example.com" required />
         <input type="password" id="password" name="password" placeholder="Enter your password" required />
         <button type="submit" id="submitBtn">Sign In</button>
@@ -240,8 +240,8 @@
   <!-- ===== JS Redirect ===== -->
   <script>
     function redirectHome() {
-      alert("Login successful! Redirecting to homepage...");
-      window.location.href = "index.php";
+      alert("Login successful! Redirecting to Student Dashboard...");
+      window.location.href = "Studentdashboard.php";
       return false; // Prevents default form submission
     }
   </script>
