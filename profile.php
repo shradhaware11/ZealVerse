@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <?php
 session_start();
 
@@ -278,6 +279,8 @@ if (isset($_GET['logout'])) {
 </body>
 </html>
 =======
+=======
+>>>>>>> Stashed changes
 <?php
 session_start();
 
@@ -556,4 +559,7 @@ if (isset($_GET['logout'])) {
 
 </body>
 </html>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes

@@ -1,4 +1,5 @@
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 <?php
 session_start();
 
@@ -272,6 +273,8 @@ if (!isset($_SESSION['student_name'])) {
 </body>
 </html>
 =======
+=======
+>>>>>>> Stashed changes
 <?php
 session_start();
 
@@ -544,4 +547,7 @@ if (!isset($_SESSION['student_name'])) {
 
 </body>
 </html>
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
