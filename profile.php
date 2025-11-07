@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 
@@ -207,7 +208,7 @@ if (isset($_GET['logout'])) {
     <a href="Studentdashboard.php"><i class="fa-solid fa-gauge"></i> Dashboard</a>
     <a href="#"><i class="fa-solid fa-magnifying-glass"></i> Find Events</a>
     <a href="#"><i class="fa-solid fa-calendar-plus"></i> Register for Events</a>
-    <a href="#"><i class="fa-solid fa-list-check"></i> My Events</a>
+    <a href="myevents.php"><i class="fa-solid fa-list-check"></i> My Events</a>
     <a href="feedback.php"><i class="fa-solid fa-comment"></i> Feedback</a>
     <a href="profile.php" class="active"><i class="fa-solid fa-user"></i> Profile</a>
     <a href="?logout=true" class="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
@@ -276,3 +277,4 @@ if (isset($_GET['logout'])) {
 
 </body>
 </html>
+

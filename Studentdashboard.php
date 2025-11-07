@@ -172,16 +172,14 @@ if (isset($_GET['logout'])) {
     <a href="Studentdashboard.php" class="active"><i class="fa-solid fa-gauge"></i> Dashboard</a>
     <a href="#"><i class="fa-solid fa-magnifying-glass"></i> Find Events</a>
     <a href="#"><i class="fa-solid fa-calendar-plus"></i> Register for Events</a>
-    <a href="#"><i class="fa-solid fa-list-check"></i> My Events</a>
+    <a href="myevents.php"><i class="fa-solid fa-list-check"></i> My Events</a>
     <a href="feedback.php"><i class="fa-solid fa-comment"></i> Feedback</a>
     <a href="profile.php"><i class="fa-solid fa-user"></i> Profile</a>
     <a href="?logout=true" class="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
   </div>
 
-
   <!-- Main Content -->
   <div class="main">
-    <!-- Back to Home link -->
     <a href="index.php" class="back-home">🏠 Back to Home</a>
 
     <h1 class="welcome">Welcome back, <?php echo $_SESSION['student_name']; ?>!</h1>

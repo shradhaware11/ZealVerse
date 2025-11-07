@@ -202,7 +202,7 @@ if (!isset($_SESSION['student_name'])) {
     <a href="Studentdashboard.php"><i class="fa-solid fa-gauge"></i> Dashboard</a>
     <a href="#"><i class="fa-solid fa-magnifying-glass"></i> Find Events</a>
     <a href="#"><i class="fa-solid fa-calendar-plus"></i> Register for Events</a>
-    <a href="#"><i class="fa-solid fa-list-check"></i> My Events</a>
+    <a href="myevents.php"><i class="fa-solid fa-list-check"></i> My Events</a> <!-- ✅ Added working link -->
     <a href="feedback.php" class="active"><i class="fa-solid fa-comment"></i> Feedback</a>
     <a href="profile.php"><i class="fa-solid fa-user"></i> Profile</a>
 
@@ -264,8 +264,6 @@ if (!isset($_SESSION['student_name'])) {
       alert('Thank you for your feedback!');
       this.reset();
     }
-
-
   </script>
 
 </body>

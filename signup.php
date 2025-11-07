@@ -347,8 +347,8 @@
       }
 
       if (valid) {
-        alert("Signup successful! Redirecting to homepage...");
-        window.location.href = "index.php"; // ✅ Redirect to homepage
+        alert("Signup successful! Redirecting to Student Dashboard...");
+        window.location.href = "Studentdashboard.php"; // ✅ Redirect to homepage
       }
     });
   </script>
