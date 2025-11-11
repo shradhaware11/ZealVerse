@@ -11,7 +11,6 @@
       color: #fff;
       margin: 0;
     }
-
     header {
       background: #6c2bd9;
       padding: 18px 50px;
@@ -32,13 +31,11 @@
     nav a:hover {
       text-decoration: underline;
     }
-
     .page-header {
       text-align: center;
       padding: 70px 20px;
       background: linear-gradient(135deg, #6c2bd9, #9333ea);
     }
-
     .events-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -47,7 +44,6 @@
       max-width: 1400px;
       margin: auto;
     }
-
     .event-card {
       background: #1c1c23;
       border-radius: 12px;
@@ -92,7 +88,6 @@
     .btn:hover {
       background: #a855f7;
     }
-
     footer {
       background: #6c2bd9;
       padding: 40px;
