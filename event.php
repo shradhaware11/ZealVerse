@@ -3,256 +3,152 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>UniVerse - Events</title>
-
-  <!-- Font Awesome for Social Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+  <title>ZealVerse | Events</title>
   <style>
-    * {margin: 0; padding: 0; box-sizing: border-box;}
-    body {font-family: 'Poppins', sans-serif; background: #f9fafb; color: #222;}
-    a {text-decoration: none;}
-
-    /* ===== Header ===== */
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0e0e12;
+      color: #fff;
+      margin: 0;
+    }
     header {
-      background: #0c0c0c;
-      color: white;
+      background: #6c2bd9;
+      padding: 18px 50px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 40px;
     }
-    .logo {font-weight: bold; font-size: 1.5rem;}
-    nav ul {list-style: none; display: flex;}
-    nav li {margin: 0 10px;}
-    nav a {color: white; padding: 8px 14px; border-radius: 5px;}
-    nav a:hover, nav a.active {background: #007bff;}
-
-    /* ===== Page Header ===== */
+    header .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
     .page-header {
       text-align: center;
-      padding: 80px 20px;
-      background: linear-gradient(135deg, #00c4b4 0%, #007bff 100%);
-      color: white;
+      padding: 70px 20px;
+      background: linear-gradient(135deg, #6c2bd9, #9333ea);
     }
-    .page-header h1 {font-size: 3rem; margin-bottom: 10px;}
-    .page-header p {font-size: 1.1rem;}
-
-    /* ===== Events Section ===== */
-    .events-section {padding: 80px 40px; background: #eef2f7;}
-    .events-grid {
+    .events-container {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 2fr));
-      gap: 40px;
-      max-width: 1600px;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+      padding: 60px;
+      max-width: 1400px;
       margin: auto;
     }
-    .card {
-      position: relative;
-      background: white;
+    .event-card {
+      background: #1c1c23;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: all 0.4s ease;
-      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
     }
-    .card img {
+    .event-card:hover {
+      transform: translateY(-5px);
+    }
+    .event-card img {
       width: 100%;
-      height: 220px;
+      height: 200px;
       object-fit: cover;
-      transition: all 0.4s ease;
     }
-    .card-content {
-      padding: 15px;
-      text-align: center;
+    .event-info {
+      padding: 20px;
     }
-    .card-content h3 {margin: 10px 0; color: #111;}
     .category {
-      display: inline-block;
-      padding: 5px 10px;
-      background: #00c4b4;
-      color: white;
+      background: #6c2bd9;
+      padding: 4px 10px;
       border-radius: 20px;
       font-size: 0.8rem;
-      margin-bottom: 8px;
+      display: inline-block;
+      margin-bottom: 10px;
     }
-
-    /* Hover Popup */
-    .card::after {
-      content: "";
-      position: absolute;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      background: rgba(0,0,0,0.5);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-    .card:hover::after {opacity: 1;}
-    .card:hover img {transform: scale(1.1); filter: blur(2px) brightness(70%);}
-    .popup {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%) scale(0.8);
-      background: rgba(255, 255, 255, 0.95);
-      color: #111;
-      padding: 20px;
-      border-radius: 10px;
-      opacity: 0;
-      transition: all 0.3s ease;
-      width: 80%;
-      text-align: center;
-      z-index: 2;
-    }
-    .card:hover .popup {
-      opacity: 1;
-      transform: translate(-50%, -50%) scale(1);
+    .event-info h3 {
+      margin: 5px 0;
+      font-size: 1.2rem;
     }
     .btn {
       display: inline-block;
+      background: #9333ea;
+      color: white;
+      text-decoration: none;
       padding: 10px 20px;
       border-radius: 6px;
-      background: #00c4b4;
-      color: white;
+      font-weight: 500;
       margin-top: 10px;
+      transition: background 0.3s ease;
     }
-    .btn:hover {background: #009f9f;}
-
-    /* ===== Footer ===== */
+    .btn:hover {
+      background: #a855f7;
+    }
     footer {
-      background: #7b2ff7;
-      color: white;
-      padding: 50px 20px 10px;
-      margin-top: 60px;
-    }
-    .footer-container {
-      max-width: 1100px;
-      margin: auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 30px;
-    }
-    .footer-section h4 {
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-bottom: 15px;
-    }
-    .footer-section p {
-      line-height: 1.6;
-      font-size: 0.95rem;
-    }
-    .footer-section ul {list-style: none; padding: 0;}
-    .footer-section ul li {margin-bottom: 8px;}
-    .footer-section ul li a {
-      color: white; font-size: 0.95rem; transition: 0.3s;
-    }
-    .footer-section ul li a:hover {text-decoration: underline;}
-    .social-icons a {
-      display: inline-block;
-      color: white;
-      font-size: 1.6rem;
-      margin-right: 12px;
-      transition: 0.3s;
-    }
-    .social-icons a:hover {
-      color: #d3d3d3;
-      transform: scale(1.1);
-    }
-    .footer-bottom {
+      background: #6c2bd9;
+      padding: 40px;
       text-align: center;
-      margin-top: 30px;
-      padding-top: 10px;
-      border-top: 1px solid rgba(255,255,255,0.2);
-      font-size: 0.9rem;
+      color: white;
+      margin-top: 50px;
     }
   </style>
 </head>
 <body>
 
-  <!-- ===== Header ===== -->
   <header>
-    <div class="logo">🎓 UniVerse</div>
+    <div class="logo">ZealVerse</div>
     <nav>
-      <ul>
-        <li><a href="index.php">Home</a></li>
-        <li><a href="event.php" class="active">Events</a></li>
-        <li><a href="about.php">About</a></li>
-        <li><a href="contact.php">Contact</a></li>
-        <li><a href="login.php">Login</a></li>
-        <li><a href="signup.php">Signup</a></li>
-      </ul>
+      <a href="index.php">Home</a>
+      <a href="events.php" style="text-decoration:underline;">Events</a>
+      <a href="about.php">About</a>
+      <a href="contact.php">Contact</a>
     </nav>
   </header>
 
-  <!-- ===== Page Header ===== -->
   <section class="page-header">
-    <h1>Explore All Events</h1>
-    <p>Discover upcoming fests, workshops, and competitions happening on campus.</p>
+    <h1>Upcoming Events</h1>
+    <p>Explore and register for exciting fests, workshops, and more.</p>
   </section>
 
-  <!-- ===== Events Section ===== -->
-  <section class="events-section">
-    <div class="events-grid">
-      
-      <!-- 12 Event Cards with Google Form Links -->
-      <div class="card"><img src="images/art.jpg"><div class="card-content"><span class="category">Cultural</span><h3>Art Fiesta</h3></div><div class="popup"><h3>Art Fiesta</h3><p>Showcase your artistic talent.</p><a href="https://docs.google.com/forms/d/e/1FAIpQLSc-YkUBaAONWeCJ4pa0v4lpn4Fx_0BjKSpq7zQxV2ENldp1DA/viewform?usp=publish-editor" target="_blank" class="btn">Register</a></div></div>
+  <section class="events-container">
+    <?php
+      $events = [
+        ["Cultural", "Art Fiesta", "art.jpg", "Showcase your artistic talent.", "https://docs.google.com/forms/..."],
+        ["Sports", "Football Cup", "football.jpg", "Compete for the trophy!", "https://docs.google.com/forms/..."],
+        ["Seminar", "AI Future Talks", "ai.jpg", "Learn from AI experts.", "https://docs.google.com/forms/..."],
+        ["Coding", "Code Sprint 2025", "coding.jpg", "24-hour coding marathon.", "https://docs.google.com/forms/..."],
+        ["Workshop", "Photography Basics", "photo.jpg", "Learn from professional photographers.", "https://docs.google.com/forms/..."],
+        ["Tech", "Hackathon 2.0", "hackathon.jpg", "Build innovative projects.", "https://docs.google.com/forms/..."],
+        ["Music", "Battle of Bands", "music.jpg", "Rock the stage!", "https://docs.google.com/forms/..."],
+        ["Career", "Startup Meetup", "startup.jpg", "Connect with innovators.", "https://docs.google.com/forms/..."],
+        ["Cultural", "Fashion Show", "fashion.jpg", "Unleash creativity and style.", "https://docs.google.com/forms/..."],
+        ["Technology", "Tech Expo", "techexpo.jpg", "Explore new innovations.", "https://docs.google.com/forms/..."],
+        ["Career", "Job Fair 2025", "jobfair.jpg", "Meet top recruiters.", "https://docs.google.com/forms/..."],
+        ["Social", "Blood Donation Camp", "blood.jpg", "Donate blood and save lives.", "https://docs.google.com/forms/..."],
+      ];
 
-      <div class="card"><img src="images/football.jpg"><div class="card-content"><span class="category">Sports</span><h3>Football Cup</h3></div><div class="popup"><h3>Football Cup</h3><p>Compete for the trophy!</p><a href="https://docs.google.com/forms/d/e/1FAIpQLSc-YkUBaAONWeCJ4pa0v4lpn4Fx_0BjKSpq7zQxV2ENldp1DA/viewform?usp=publish-editor" target="_blank" class="btn">Join</a></div></div>
-
-      <div class="card"><img src="images/ai.jpg"><div class="card-content"><span class="category">Seminar</span><h3>AI Future Talks</h3></div><div class="popup"><h3>AI Future Talks</h3><p>Learn from AI experts.</p><a href="https://docs.google.com/forms/d/e/1FAIpQLSc-YkUBaAONWeCJ4pa0v4lpn4Fx_0BjKSpq7zQxV2ENldp1DA/viewform?usp=publish-editor" target="_blank" class="btn">Join</a></div></div>
-
-      <div class="card"><img src="images/coding.jpg"><div class="card-content"><span class="category">Coding</span><h3>Code Sprint 2025</h3></div><div class="popup"><h3>Code Sprint 2025</h3><p>24-hour coding marathon.</p><a href="v" target="_blank" class="btn">Participate</a></div></div>
-
-      <div class="card"><img src="images/photo.jpg"><div class="card-content"><span class="category">Workshop</span><h3>Photography Basics</h3></div><div class="popup"><h3>Photography Workshop</h3><p>Learn from pros.</p><a href="https://docs.google.com/forms/d/e/1FAIpQLSc-YkUBaAONWeCJ4pa0v4lpn4Fx_0BjKSpq7zQxV2ENldp1DA/viewform?usp=publish-editor" target="_blank" class="btn">Register</a></div></div>
-
-      <div class="card"><img src="images/hackathon.jpg"><div class="card-content"><span class="category">Tech</span><h3>Hackathon 2.0</h3></div><div class="popup"><h3>Hackathon 2.0</h3><p>Build innovative projects.</p><a href="https://docs.google.com/forms/d/e/1FAIpQLSc-YkUBaAONWeCJ4pa0v4lpn4Fx_0BjKSpq7zQxV2ENldp1DA/viewform?usp=publish-editor" target="_blank" class="btn">Join</a></div></div>
-
-      <div class="card"><img src="images/music.jpg"><div class="card-content"><span class="category">Music</span><h3>Battle of Bands</h3></div><div class="popup"><h3>Battle of Bands</h3><p>Rock the stage!</p><a href="https://docs.google.com/forms/d/e/1FAIpQLSc-YkUBaAONWeCJ4pa0v4lpn4Fx_0BjKSpq7zQxV2ENldp1DA/viewform?usp=publish-editor" target="_blank" class="btn">Book</a></div></div>
-
-      <div class="card"><img src="images/startup.jpg"><div class="card-content"><span class="category">Career</span><h3>Startup Meetup</h3></div><div class="popup"><h3>Startup Meetup</h3><p>Connect with innovators.</p><a href="https://docs.google.com/forms/d/e/1FAIpQLSc-YkUBaAONWeCJ4pa0v4lpn4Fx_0BjKSpq7zQxV2ENldp1DA/viewform?usp=publish-editor" target="_blank" class="btn">Join</a></div></div>
-
-      <div class="card"><img src="images/fashion.jpg"><div class="card-content"><span class="category">Cultural</span><h3>Fashion Show</h3></div><div class="popup"><h3>Fashion Show</h3><p>Unleash creativity.</p><a href="https://docs.google.com/forms/d/e/1FAIpQLSc-YkUBaAONWeCJ4pa0v4lpn4Fx_0BjKSpq7zQxV2ENldp1DA/viewform?usp=publish-editor" target="_blank" class="btn">Register</a></div></div>
-
-      <div class="card"><img src="images/techexpo.jpg"><div class="card-content"><span class="category">Technology</span><h3>Tech Expo</h3></div><div class="popup"><h3>Tech Expo</h3><p>Explore new innovations.</p><a href="https://docs.google.com/forms/d/e/1FAIpQLSc-YkUBaAONWeCJ4pa0v4lpn4Fx_0BjKSpq7zQxV2ENldp1DA/viewform?usp=publish-editor" target="_blank" class="btn">Visit</a></div></div>
-
-      <div class="card"><img src="images/jobfair.jpg"><div class="card-content"><span class="category">Career</span><h3>Job Fair 2025</h3></div><div class="popup"><h3>Job Fair</h3><p>Meet top recruiters.</p><a href="https://docs.google.com/forms/d/e/1FAIpQLSc-YkUBaAONWeCJ4pa0v4lpn4Fx_0BjKSpq7zQxV2ENldp1DA/viewform?usp=publish-editor" target="_blank" class="btn">Join</a></div></div>
-
-      <div class="card"><img src="images/blood.jpg"><div class="card-content"><span class="category">Social</span><h3>Blood Donation Camp</h3></div><div class="popup"><h3>Blood Donation</h3><p>Donate blood and save lives.</p><a href="https://docs.google.com/forms/d/e/1FAIpQLSc-YkUBaAONWeCJ4pa0v4lpn4Fx_0BjKSpq7zQxV2ENldp1DA/viewform?usp=publish-editor"_blank" class="btn">Volunteer</a></div></div>
-
-    </div>
+      foreach ($events as $index => $event) {
+        echo "
+          <div class='event-card'>
+            <img src='{$event[2]}' alt='{$event[1]}'>
+            <div class='event-info'>
+              <span class='category'>{$event[0]}</span>
+              <h3>{$event[1]}</h3>
+              <p>{$event[3]}</p>
+              <a href='event-details.php?event_id={$index}' class='btn'>View Details</a>
+            </div>
+          </div>
+        ";
+      }
+    ?>
   </section>
 
-  <!-- ===== Footer ===== -->
   <footer>
-    <div class="footer-container">
-      <div class="footer-section">
-        <h4>UniVerse</h4>
-        <p>Your one-stop platform for managing and discovering college events. Connect, participate, and make memories!</p>
-      </div>
-      <div class="footer-section">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="index.php">Home</a></li>
-          <li><a href="about.php">About Us</a></li>
-          <li><a href="event.php">Events</a></li>
-          <li><a href="contact.php">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h4>Contact Info</h4>
-        <p>info@universe.edu</p>
-        <p>+1 (555) 123-4567</p>
-        <p>123 College Ave, Campus City</p>
-      </div>
-      <div class="footer-section">
-        <h4>Follow Us</h4>
-        <div class="social-icons">
-          <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-          <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">© 2025 UniVerse. All rights reserved.</div>
+    <p>© 2025 ZealVerse. All rights reserved.</p>
   </footer>
 
 </body>
