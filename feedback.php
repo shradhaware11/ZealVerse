@@ -13,75 +13,106 @@ if (!isset($_SESSION['student_name'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Event Feedback | UniVerse</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
   <style>
-    /* ===== Base ===== */
     body {
       margin: 0;
-      font-family: "Poppins", sans-serif;
-      background: #0b0e14;
-      color: #fff;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0d1117;
+      color: #ffffff;
       display: flex;
     }
 
-    /* ===== Sidebar ===== */
+    /* Sidebar */
     .sidebar {
-      width: 230px;
-      background: #141823;
+      width: 250px;
       height: 100vh;
+      background-color: #0d1117;
       display: flex;
       flex-direction: column;
-      padding: 20px;
+      justify-content: space-between;
       position: fixed;
+      left: 0;
+      top: 0;
+      border-right: 1px solid #1f2937;
+      box-sizing: border-box;
+      padding: 20px 0;
     }
 
-    .sidebar h2 {
-      color: #b88cff;
-      margin-bottom: 40px;
+    .sidebar-top {
+      padding: 0 20px;
     }
 
-    .sidebar a {
+    .logo {
+      font-size: 22px;
+      font-weight: 600;
+      color: #b187ff;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .menu a {
       display: flex;
       align-items: center;
       gap: 10px;
-      color: #ccc;
-      padding: 10px;
-      border-radius: 6px;
-      margin: 4px 0;
+      color: #c9d1d9;
       text-decoration: none;
+      padding: 10px 15px;
+      margin-bottom: 8px;
+      border-radius: 8px;
       transition: 0.3s;
+      font-size: 15px;
     }
 
-    .sidebar a:hover, .sidebar a.active {
-      background: #7b2ff7;
+    .menu a:hover {
+      background-color: #1f2937;
       color: #fff;
     }
 
-    .logout {
-      margin-top: auto;
-      background: #ff3b3b;
-      text-align: center;
-      border-radius: 6px;
-      padding: 10px;
-      color: white;
-      text-decoration: none;
-      transition: 0.3s;
+    .menu a.active {
+      background-color: #8a3ffc;
+      color: #fff;
     }
 
-    .logout:hover { background: #e03232; }
+    /* Logout button */
+    .sidebar-bottom {
+      padding: 0 20px 15px 20px;
+      border-top: 1px solid #1f2937;
+      padding-top: 15px;
+    }
 
-    /* ===== Main Area ===== */
+    .logout-btn {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .logout-btn:hover {
+      background-color: #e53935;
+    }
+
+    /* Main */
     .main {
-      margin-left: 250px;
-      padding: 30px 40px;
+      margin-left: 260px;
+      padding: 40px;
       flex: 1;
       background: #0f1320;
       min-height: 100vh;
       position: relative;
     }
 
-    /* ===== Back to Home ===== */
     .back-home {
       position: absolute;
       top: 25px;
@@ -97,25 +128,24 @@ if (!isset($_SESSION['student_name'])) {
       text-decoration: underline;
     }
 
-    /* ===== Header ===== */
-    .main h1 {
-      font-size: 1.8rem;
-      margin-bottom: 10px;
-      color: #fff;
+    h1 {
+      font-size: 28px;
+      margin-bottom: 5px;
+      color: #f0f6fc;
     }
 
-    .main p.subtitle {
-      color: #bbb;
-      margin-bottom: 30px;
+    .subtitle {
+      color: #a5a5a5;
+      margin-bottom: 25px;
     }
 
-    /* ===== Feedback Card ===== */
+    /* Feedback Card */
     .feedback-card {
-      background: #1c2135;
-      border-radius: 12px;
-      padding: 30px;
+      background: #161b22;
+      padding: 25px;
+      border-radius: 14px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
       max-width: 700px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
     }
 
     .feedback-header {
@@ -127,7 +157,7 @@ if (!isset($_SESSION['student_name'])) {
 
     .feedback-header i {
       font-size: 1.5rem;
-      color: #b88cff;
+      color: #b187ff;
     }
 
     .feedback-header h2 {
@@ -155,7 +185,7 @@ if (!isset($_SESSION['student_name'])) {
       background: #141823;
       color: #fff;
       resize: none;
-      font-family: "Poppins", sans-serif;
+      font-family: 'Poppins', sans-serif;
     }
 
     select option {
@@ -163,10 +193,10 @@ if (!isset($_SESSION['student_name'])) {
       color: #fff;
     }
 
-    button.submit-btn {
+    .submit-btn {
       width: 100%;
       margin-top: 20px;
-      background: #7b2ff7;
+      background: #8a3ffc;
       color: white;
       font-weight: 600;
       border: none;
@@ -176,21 +206,8 @@ if (!isset($_SESSION['student_name'])) {
       transition: 0.3s;
     }
 
-    button.submit-btn:hover {
-      background: #6825d8;
-    }
-
-    /* ===== Student Info at Bottom of Sidebar ===== */
-    .student-info {
-      margin-top: auto;
-      padding-top: 15px;
-      border-top: 1px solid rgba(255,255,255,0.1);
-      font-size: 0.9rem;
-      color: #bbb;
-    }
-
-    .student-info p {
-      margin: 2px 0;
+    .submit-btn:hover {
+      background: #6e32d9;
     }
   </style>
 </head>
@@ -198,20 +215,25 @@ if (!isset($_SESSION['student_name'])) {
 
   <!-- Sidebar -->
   <div class="sidebar">
-    <h2>🎉 UniVerse</h2>
-    <a href="Studentdashboard.php"><i class="fa-solid fa-gauge"></i> Dashboard</a>
-    <a href="#"><i class="fa-solid fa-magnifying-glass"></i> Find Events</a>
-    <a href="#"><i class="fa-solid fa-calendar-plus"></i> Register for Events</a>
-    <a href="myevents.php"><i class="fa-solid fa-list-check"></i> My Events</a> <!-- ✅ Added working link -->
-    <a href="feedback.php" class="active"><i class="fa-solid fa-comment"></i> Feedback</a>
-    <a href="profile.php"><i class="fa-solid fa-user"></i> Profile</a>
-
-    <div class="student-info">
-      <p><strong><?php echo $_SESSION['student_name']; ?></strong></p>
-      <p>nikitautekar101@gmail.com</p>
+    <div class="sidebar-top">
+      <div class="logo">🎉 UniVerse</div>
+      <div class="menu">
+        <a href="Studentdashboard.php"><i class="ri-dashboard-line"></i> Dashboard</a>
+        <a href="findevents.php"><i class="ri-search-line"></i> Find Events</a>
+        <a href="event.php"><i class="ri-calendar-event-line"></i> Register for Events</a>
+        <a href="myevents.php"><i class="ri-list-check"></i> My Events</a>
+        <a href="feedback.php" class="active"><i class="ri-chat-3-line"></i> Feedback</a>
+        <a href="profile.php"><i class="ri-user-line"></i> Profile</a>
+      </div>
     </div>
 
-    <a href="?logout=true" class="logout"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+    <div class="sidebar-bottom">
+      <form action="logout.php" method="POST">
+        <button type="submit" class="logout-btn">
+          <i class="ri-logout-box-line"></i> Logout
+        </button>
+      </form>
+    </div>
   </div>
 
   <!-- Main Section -->
@@ -223,7 +245,7 @@ if (!isset($_SESSION['student_name'])) {
 
     <div class="feedback-card">
       <div class="feedback-header">
-        <i class="fa-solid fa-message"></i>
+        <i class="ri-message-3-line"></i>
         <div>
           <h2>Submit Feedback</h2>
           <p>Help us improve future events</p>
