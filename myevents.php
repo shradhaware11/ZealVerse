@@ -4,59 +4,103 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>My Events | UniVerse</title>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: "Poppins", sans-serif;
-      display: flex;
-      background-color: #0e1420;
+      font-family: 'Poppins', sans-serif;
+      background-color: #0d1117;
       color: #ffffff;
+      display: flex;
     }
 
     /* Sidebar */
     .sidebar {
-      width: 240px;
-      background-color: #0c0f1a;
+      width: 250px;
       height: 100vh;
-      padding: 25px 15px;
+      background-color: #0d1117;
       display: flex;
       flex-direction: column;
-      gap: 15px;
+      justify-content: space-between;
+      position: fixed;
+      left: 0;
+      top: 0;
+      border-right: 1px solid #1f2937;
+      box-sizing: border-box;
+      padding: 20px 0;
     }
 
-    .sidebar h2 {
-      color: #b187ff;
+    .sidebar-top {
+      padding: 0 20px;
+    }
+
+    .logo {
       font-size: 22px;
-      margin-bottom: 20px;
+      font-weight: 600;
+      color: #b187ff;
+      margin-bottom: 30px;
       display: flex;
       align-items: center;
       gap: 8px;
     }
 
-    .sidebar a {
+    .menu a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #c9d1d9;
       text-decoration: none;
-      color: #b5b5b5;
-      padding: 10px 14px;
+      padding: 10px 15px;
+      margin-bottom: 8px;
       border-radius: 8px;
       transition: 0.3s;
       font-size: 15px;
     }
 
-    .sidebar a:hover,
-    .sidebar a.active {
-      background-color: #8a3ffc;
-      color: white;
+    .menu a:hover {
+      background-color: #1f2937;
+      color: #fff;
     }
 
-    /* Main content */
+    .menu a.active {
+      background-color: #8a3ffc;
+      color: #fff;
+    }
+
+    /* Bottom section */
+    .sidebar-bottom {
+      padding: 0 20px 15px 20px;
+      border-top: 1px solid #1f2937;
+      padding-top: 15px;
+    }
+
+    .logout-btn {
+      background-color: #f44336;
+      color: white;
+      border: none;
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 14px;
+    }
+
+    .logout-btn:hover {
+      background-color: #e53935;
+    }
+
+    /* Main Content */
     .main-content {
-      flex: 1;
-      padding: 30px 40px;
+      margin-left: 260px;
+      padding: 40px;
+      width: 100%;
     }
 
     .main-content h1 {
       font-size: 28px;
       margin-bottom: 5px;
+      color: #f0f6fc;
     }
 
     .main-content p {
@@ -64,11 +108,12 @@
       margin-bottom: 25px;
     }
 
-    /* Event section */
+    /* Event Section */
     .event-section {
-      background-color: #111a2b;
+      background-color: #161b22;
       padding: 25px;
       border-radius: 14px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.3);
     }
 
     .event-section h2 {
@@ -79,13 +124,18 @@
 
     .event-card {
       display: flex;
-      background-color: #1a2235;
+      background-color: #1c2128;
       border-radius: 12px;
       padding: 15px;
       margin-bottom: 20px;
       align-items: center;
       gap: 20px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      transition: 0.3s;
+    }
+
+    .event-card:hover {
+      background-color: #212832;
     }
 
     .event-card img {
@@ -103,12 +153,23 @@
       margin: 0 0 5px;
       color: #b187ff;
       font-size: 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
     .event-details p {
       margin: 4px 0;
       color: #ccc;
       font-size: 14px;
+    }
+
+    .registered-badge {
+      background-color: #8a3ffc;
+      color: #fff;
+      padding: 4px 10px;
+      border-radius: 8px;
+      font-size: 12px;
     }
 
     .status {
@@ -124,16 +185,6 @@
       color: #fff;
     }
 
-    .registered-badge {
-      background-color: #8a3ffc;
-      color: #fff;
-      padding: 4px 10px;
-      border-radius: 8px;
-      font-size: 12px;
-      float: right;
-    }
-
-    /* Buttons */
     .btn {
       padding: 7px 14px;
       border: none;
@@ -165,15 +216,26 @@
   </style>
 </head>
 <body>
+
   <!-- Sidebar -->
   <div class="sidebar">
-    <h2>🎉 UniVerse</h2>
-    <a href="Studentdashboard.php">🏠 Dashboard</a> <!-- ✅ Added link -->
-    <a href="#">🔍 Find Events</a>
-    <a href="#">📅 Register for Events</a>
-    <a href="myevents.php" class="active">🗓 My Events</a>
-    <a href="feedback.php">💬 Feedback</a> <!-- ✅ Added link -->
-    <a href="profile.php">👤 Profile</a> <!-- ✅ Added link -->
+    <div class="sidebar-top">
+      <div class="logo">🎉 UniVerse</div>
+      <div class="menu">
+        <a href="Studentdashboard.php"><i class="ri-dashboard-line"></i> Dashboard</a>
+        <a href="findevents.php"><i class="ri-search-line"></i> Find Events</a>
+        <a href="event.php"><i class="ri-calendar-event-line"></i> Register for Events</a>
+        <a href="myevents.php" class="active"><i class="ri-list-check"></i> My Events</a>
+        <a href="feedback.php"><i class="ri-chat-3-line"></i> Feedback</a>
+        <a href="profile.php"><i class="ri-user-line"></i> Profile</a>
+      </div>
+    </div>
+
+    <div class="sidebar-bottom">
+      <form action="logout.php" method="POST">
+        <button type="submit" class="logout-btn"><i class="ri-logout-box-line"></i> Logout</button>
+      </form>
+    </div>
   </div>
 
   <!-- Main Content -->
@@ -184,7 +246,6 @@
     <div class="event-section">
       <h2>Registered as Participant</h2>
 
-      <!-- Event 1 -->
       <div class="event-card">
         <img src="https://images.unsplash.com/photo-1531058020387-3be344556be6" alt="Tech Fest">
         <div class="event-details">
@@ -195,7 +256,6 @@
         </div>
       </div>
 
-      <!-- Event 2 -->
       <div class="event-card">
         <img src="https://images.unsplash.com/photo-1508606572321-901ea443707f" alt="Cultural Night">
         <div class="event-details">
@@ -208,5 +268,6 @@
       </div>
     </div>
   </div>
+
 </body>
 </html>
