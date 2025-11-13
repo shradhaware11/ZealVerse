@@ -272,8 +272,8 @@ session_start();
     <div class="footer-section">
       <h4>Follow Us</h4>
       <div class="social-icons">
-        <a href="https://www.instagram.com/zealverse1?igsh=MTB6cGRzeWJheDlycQ=="><i class="fab fa-instagram"></i></a>
-        <a href=""><i class="fab fa-x-twitter"></i></a>
+        <a href="https://www.instagram.com/zeal_verse11?igsh=MTB6cGRzeWJheDlycQ=="><i class="fab fa-instagram"></i></a>
+        <a href="https://x.com/zeal_verse11?t=oNOTOyL7RHpLkLaCGW8XNA&s=08"><i class="fab fa-x-twitter"></i></a>
       </div>
     </div>
   </div>
@@ -313,3 +313,4 @@ session_start();
 
 </body>
 </html>
+
