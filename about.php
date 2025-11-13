@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -176,17 +179,30 @@
 
 <body>
   <!-- Header -->
-  <header>
+ <header>
     <div class="logo">ZealVerse</div>
+
     <nav>
       <ul>
         <li><a href="index.php">Home</a></li>
-        <li><a href="events.php">Events</a></li>
+        <li><a href="event.php">Event</a></li>
         <li><a href="about.php" class="active">About</a></li>
         <li><a href="contact.php">Contact</a></li>
       </ul>
     </nav>
-  </header>
+
+    <div class="auth-buttons" style="display:flex; gap:15px;">
+      <?php if(!isset($_SESSION['user'])): ?>
+          <!-- Show Login + Signup only when NOT logged in -->
+          <a href="login.php" style="color:#fff;">Login</a>
+          <a href="signup.php" style="color:#fff;">Sign Up</a>
+      <?php else: ?>
+          <!-- Show Logout ONLY when logged in -->
+          <a href="logout.php" style="color:#fff;">Logout</a>
+      <?php endif; ?>
+    </div>
+</header>
+
 
   <!-- About Hero -->
   <section class="about-hero">
@@ -231,9 +247,9 @@
   <!-- Footer -->
   <footer>
     <div class="social">
-      <a href="#"><i class="fab fa-instagram"></i></a>
-      <a href="#"><i class="fab fa-linkedin"></i></a>
-      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="https://www.instagram.com/zeal_verse11?igsh=MTB6cGRzeWJheDlycQ=="><i class="fab fa-instagram"></i></a>
+      <a href="https://x.com/zeal_verse11?t=oNOTOyL7RHpLkLaCGW8XNA&s=08"><i class="fab fa-x-twitter"></i></a>
+      
     </div>
     <p>© 2025 ZealVerse. Crafted with purpose for students everywhere.</p>
   </footer>
